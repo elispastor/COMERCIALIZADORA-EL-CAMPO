@@ -60,7 +60,6 @@
     section { scroll-margin-top: 80px; }
     
     /* === CORRECCIONES NUEVAS === */
-    /* Contenedor principal centrado */
     .contenedor-principal {
       width: 100%;
       max-width: 1200px;
@@ -68,32 +67,80 @@
       padding: 1rem;
     }
     
-    /* Título principal movido a la navegación */
-    .logo-nav {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: #ffd600;
-    }
-    
-    /* Hero sin texto encima */
-    .hero-sin-texto {
+    /* HERO CON LOGO CENTRADO Y MÁS GRANDE */
+    .hero-con-logo {
       position: relative;
       height: 500px;
       border-radius: 1.5rem;
       overflow: hidden;
       border: 4px solid #ffd600;
       box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     
-    /* Texto movido debajo de la imagen */
-    .texto-bajo-hero {
+    .hero-con-logo img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: 1;
+    }
+    
+    /* CAPA OSCURA PARA DESTACAR EL TEXTO */
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 2;
+    }
+    
+    /* CONTENEDOR DEL TEXTO CENTRADO */
+    .hero-texto {
+      position: relative;
+      z-index: 3;
       text-align: center;
-      margin-top: 2rem;
+      color: white;
+      padding: 2rem;
+      max-width: 800px;
+    }
+    
+    .hero-texto h1 {
+      font-size: 4.5rem;
+      font-weight: 800;
+      color: #ffd600;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    
+    .hero-texto .subtitulo {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
       margin-bottom: 2rem;
     }
     
-    /* Galería vertical - UNA IMAGEN DEBAJO DE OTRA */
+    .hero-texto .nombre-comercial {
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: #ffd600;
+      background: rgba(46, 125, 50, 0.8);
+      display: inline-block;
+      padding: 0.5rem 2rem;
+      border-radius: 50px;
+      border: 2px solid #ffd600;
+      backdrop-filter: blur(5px);
+      margin-top: 1rem;
+    }
+    
+    /* Galería vertical */
     .galeria-vertical {
       display: flex;
       flex-direction: column;
@@ -105,23 +152,31 @@
       width: 100%;
       height: auto;
       max-height: 600px;
-      object-fit: contain; /* MUESTRA LA IMAGEN COMPLETA SIN RECORTAR */
+      object-fit: contain;
       border-radius: 1rem;
       border: 2px solid #ffd600;
       background-color: #f0f0f0;
     }
     
-    /* Corrección para el correo y textos largos */
+    /* Correo largo */
     p, .text-lg, .correo-largo {
       word-wrap: break-word;
       overflow-wrap: break-word;
       max-width: 100%;
     }
     
-    /* Ajuste para móvil */
     @media (max-width: 768px) {
-      .hero-sin-texto {
-        height: 300px;
+      .hero-con-logo {
+        height: 400px;
+      }
+      .hero-texto h1 {
+        font-size: 3rem;
+      }
+      .hero-texto .subtitulo {
+        font-size: 1.3rem;
+      }
+      .hero-texto .nombre-comercial {
+        font-size: 1.2rem;
       }
     }
   </style>
@@ -135,9 +190,9 @@
 
 <div class="contenedor-principal">
 
-  <!-- NAVEGACIÓN (escritorio) con LOGO INTEGRADO -->
+  <!-- NAVEGACIÓN (escritorio) -->
   <nav class="hidden md:flex justify-between items-center bg-[#2e7d32] text-white px-6 py-3 rounded-full mb-6 border-2 border-[#ffd600] shadow-lg sticky top-4 z-50">
-    <div class="logo-nav">🌾 EL CAMPO</div>
+    <div class="font-['Montserrat'] text-2xl font-bold text-[#ffd600]">🌾 EL CAMPO</div>
     <div class="flex gap-6">
       <a href="#inicio" class="hover:text-[#ffd600]">Inicio</a>
       <a href="#servicios" class="hover:text-[#ffd600]">Servicios</a>
@@ -148,10 +203,10 @@
     </div>
   </nav>
 
-  <!-- MENÚ HAMBURGUESA (móvil) con LOGO INTEGRADO -->
+  <!-- MENÚ HAMBURGUESA (móvil) -->
   <div class="md:hidden sticky top-4 z-50">
     <div class="flex justify-between items-center bg-[#2e7d32] text-white p-4 rounded-2xl mb-4 border-2 border-[#ffd600]">
-      <span class="logo-nav">🌾 EL CAMPO</span>
+      <span class="font-['Montserrat'] text-xl font-bold text-[#ffd600]">🌾 EL CAMPO</span>
       <button id="menu-btn" class="menu-hamburguesa text-2xl">
         <i class="fas fa-bars"></i>
       </button>
@@ -166,20 +221,20 @@
     </div>
   </div>
 
-  <!-- HERO - SOLO IMAGEN (SIN TEXTO ENCIMA) -->
+  <!-- HERO CON LOGO GRANDE, CENTRADO Y NOMBRE DE LA EMPRESA -->
   <section id="inicio" class="mb-8">
-    <div class="hero-sin-texto">
-      <img src="portada.png" alt="COMERCIALIZADORA EL CAMPO" class="w-full h-full object-cover object-center">
-    </div>
-    <!-- TEXTO MOVIDO DEBAJO DE LA IMAGEN -->
-    <div class="texto-bajo-hero">
-      <h1 class="text-4xl md:text-5xl font-bold mb-2" style="color: #2e7d32;">🌾 EL CAMPO</h1>
-      <p class="text-xl md:text-2xl mb-4 text-gray-700">Repuestos para maquinaria agrícola</p>
-      <a href="#contacto" class="btn-nge inline-block">CONTACTAR</a>
+    <div class="hero-con-logo">
+      <img src="portada.png" alt="COMERCIALIZADORA EL CAMPO">
+      <div class="hero-overlay"></div>
+      <div class="hero-texto">
+        <h1>🌾 EL CAMPO</h1>
+        <div class="subtitulo">Repuestos para maquinaria agrícola</div>
+        <div class="nombre-comercial">COMERCIALIZADORA E IMPORTADORA</div>
+      </div>
     </div>
   </section>
 
-  <!-- GALERÍA DE IMÁGENES - UNA DEBAJO DE OTRA (CORREGIDA) -->
+  <!-- GALERÍA DE IMÁGENES -->
   <section class="mb-12">
     <h2 class="text-3xl md:text-4xl font-bold text-center mb-8" style="color: #2e7d32;">📸 NUESTRAS INSTALACIONES</h2>
     <div class="galeria-vertical">
