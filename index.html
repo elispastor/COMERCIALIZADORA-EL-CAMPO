@@ -41,7 +41,7 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
     .btn-nge {
-      background: #2e7d32;
+      background: #f97316; /* NARANJA */
       color: white;
       padding: 12px 24px;
       border-radius: 40px;
@@ -51,7 +51,7 @@
     }
     .btn-nge:hover {
       background: #ffd600;
-      color: #2e7d32;
+      color: #f97316;
       transform: scale(1.05);
     }
     #mobile-menu { display: none; }
@@ -59,7 +59,7 @@
     .menu-hamburguesa { cursor: pointer; }
     section { scroll-margin-top: 80px; }
     
-    /* === CORRECCIONES NUEVAS === */
+    /* === CORRECCIONES FINALES === */
     .contenedor-principal {
       width: 100%;
       max-width: 1200px;
@@ -67,14 +67,14 @@
       padding: 1rem;
     }
     
-    /* PORTADA LIMPIA - SOLO IMAGEN, SIN TEXTO */
+    /* PORTADA LIMPIA */
     .portada-limpia {
       position: relative;
       height: 500px;
       border-radius: 1.5rem;
       overflow: hidden;
-      border: 4px solid #ffd600;
-      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);
+      border: 4px solid #f97316; /* NARANJA */
+      box-shadow: 0 20px 25px -5px rgba(249,115,22,0.2);
     }
     
     .portada-limpia img {
@@ -84,45 +84,49 @@
       object-position: center;
     }
     
-    /* LOGO GRANDE PARA DESPUÉS DE LA PORTADA */
+    /* LOGO GIGANTE - OCUPA TODO EL CONTENEDOR */
     .logo-gigante {
+      width: 100%;
       text-align: center;
       margin: 4rem 0 3rem 0;
-      padding: 2rem;
-      background: linear-gradient(135deg, #2e7d32 0%, #1e4f20 100%);
+      padding: 3rem 2rem;
+      background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); /* NARANJA */
       border-radius: 2rem;
       border: 4px solid #ffd600;
-      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);
+      box-shadow: 0 25px 30px -8px rgba(249,115,22,0.3);
     }
     
     .logo-gigante h1 {
-      font-size: 5rem;
-      font-weight: 800;
+      font-size: 7rem; /* MÁS GRANDE */
+      font-weight: 900;
       color: #ffd600;
-      text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+      text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
       line-height: 1.2;
-      margin-bottom: 0.5rem;
-    }
-    
-    .logo-gigante .subtitulo-logo {
-      font-size: 2rem;
-      color: white;
-      font-weight: 400;
+      margin-bottom: 1rem;
       letter-spacing: 2px;
     }
     
-    .logo-gigante .nombre-completo {
-      font-size: 1.8rem;
-      color: #ffd600;
-      margin-top: 1rem;
-      font-weight: 600;
-      background: rgba(0,0,0,0.2);
-      display: inline-block;
-      padding: 0.5rem 2rem;
-      border-radius: 50px;
+    .logo-gigante .subtitulo-logo {
+      font-size: 2.5rem;
+      color: white;
+      font-weight: 500;
+      letter-spacing: 3px;
+      margin-bottom: 1.5rem;
     }
     
-    /* Galería vertical */
+    .logo-gigante .nombre-completo {
+      font-size: 2rem;
+      color: #ffd600;
+      margin-top: 1.5rem;
+      font-weight: 700;
+      background: rgba(0,0,0,0.2);
+      display: inline-block;
+      padding: 0.8rem 3rem;
+      border-radius: 60px;
+      border: 2px solid #ffd600;
+    }
+    
+    /* GALERÍA */
     .galeria-vertical {
       display: flex;
       flex-direction: column;
@@ -136,8 +140,21 @@
       max-height: 600px;
       object-fit: contain;
       border-radius: 1rem;
-      border: 2px solid #ffd600;
+      border: 3px solid #f97316; /* NARANJA */
       background-color: #f0f0f0;
+    }
+    
+    /* TARJETAS Y BORDES NARANJA */
+    .borde-naranja {
+      border-color: #f97316 !important;
+    }
+    
+    .texto-naranja {
+      color: #f97316 !important;
+    }
+    
+    .bg-naranja {
+      background-color: #f97316 !important;
     }
     
     /* Correo largo */
@@ -152,13 +169,14 @@
         height: 300px;
       }
       .logo-gigante h1 {
-        font-size: 3.5rem;
+        font-size: 4.5rem;
       }
       .logo-gigante .subtitulo-logo {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
       }
       .logo-gigante .nombre-completo {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
+        padding: 0.5rem 1.5rem;
       }
     }
   </style>
@@ -172,8 +190,8 @@
 
 <div class="contenedor-principal">
 
-  <!-- NAVEGACIÓN (escritorio) -->
-  <nav class="hidden md:flex justify-between items-center bg-[#2e7d32] text-white px-6 py-3 rounded-full mb-6 border-2 border-[#ffd600] shadow-lg sticky top-4 z-50">
+  <!-- NAVEGACIÓN (escritorio) con NARANJA -->
+  <nav class="hidden md:flex justify-between items-center bg-[#f97316] text-white px-6 py-3 rounded-full mb-6 border-2 border-[#ffd600] shadow-lg sticky top-4 z-50">
     <div class="font-['Montserrat'] text-2xl font-bold text-[#ffd600]">🌾 COMERCIALIZADORA</div>
     <div class="flex gap-6">
       <a href="#inicio" class="hover:text-[#ffd600]">Inicio</a>
@@ -185,15 +203,15 @@
     </div>
   </nav>
 
-  <!-- MENÚ HAMBURGUESA (móvil) -->
+  <!-- MENÚ HAMBURGUESA (móvil) con NARANJA -->
   <div class="md:hidden sticky top-4 z-50">
-    <div class="flex justify-between items-center bg-[#2e7d32] text-white p-4 rounded-2xl mb-4 border-2 border-[#ffd600]">
+    <div class="flex justify-between items-center bg-[#f97316] text-white p-4 rounded-2xl mb-4 border-2 border-[#ffd600]">
       <span class="font-['Montserrat'] text-xl font-bold text-[#ffd600]">🌾 COMERCIALIZADORA</span>
       <button id="menu-btn" class="menu-hamburguesa text-2xl">
         <i class="fas fa-bars"></i>
       </button>
     </div>
-    <div id="mobile-menu" class="bg-[#2e7d32] text-white p-4 rounded-2xl flex-col gap-3 border-2 border-[#ffd600] mb-4">
+    <div id="mobile-menu" class="bg-[#f97316] text-white p-4 rounded-2xl flex-col gap-3 border-2 border-[#ffd600] mb-4">
       <a href="#inicio" class="block py-2 hover:text-[#ffd600]">Inicio</a>
       <a href="#servicios" class="block py-2 hover:text-[#ffd600]">Servicios</a>
       <a href="#nosotros" class="block py-2 hover:text-[#ffd600]">Nosotros</a>
@@ -203,120 +221,120 @@
     </div>
   </div>
 
-  <!-- PORTADA LIMPIA - SOLO IMAGEN (SIN TEXTO) -->
+  <!-- PORTADA LIMPIA con borde naranja -->
   <section id="inicio" class="mb-8">
-    <div class="portada-limpia">
+    <div class="portada-limpia" style="border-color: #f97316;">
       <img src="portada.png" alt="COMERCIALIZADORA EL CAMPO">
     </div>
   </section>
 
-  <!-- LOGO GIGANTE DESPUÉS DE LA PORTADA -->
+  <!-- LOGO GIGANTE - AHORA NARANJA Y OCUPA TODO -->
   <div class="logo-gigante">
     <h1>🌾 EL CAMPO</h1>
     <div class="subtitulo-logo">Repuestos para maquinaria agrícola</div>
     <div class="nombre-completo">COMERCIALIZADORA E IMPORTADORA</div>
   </div>
 
-  <!-- GALERÍA DE IMÁGENES -->
+  <!-- GALERÍA DE IMÁGENES con bordes naranja -->
   <section class="mb-12">
-    <h2 class="text-3xl md:text-4xl font-bold text-center mb-8" style="color: #2e7d32;">📸 NUESTRAS INSTALACIONES</h2>
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-8" style="color: #f97316;">📸 NUESTRAS INSTALACIONES</h2>
     <div class="galeria-vertical">
-      <img src="portada.png" alt="Local comercial">
-      <img src="portada2.jpg" alt="Interior del local">
-      <img src="portada3.jpg" alt="Productos en exhibición">
+      <img src="portada.png" alt="Local comercial" style="border-color: #f97316;">
+      <img src="portada2.jpg" alt="Interior del local" style="border-color: #f97316;">
+      <img src="portada3.jpg" alt="Productos en exhibición" style="border-color: #f97316;">
     </div>
     <p class="text-center text-gray-600 mt-6">Visítanos en Av. 6 con Calle 2 Esquina, Barrio Callejón</p>
   </section>
 
-  <!-- SEPARADOR 1 -->
-  <div class="w-24 h-1 bg-[#ffd600] mx-auto my-16 rounded-full"></div>
+  <!-- SEPARADOR (ahora naranja) -->
+  <div class="w-24 h-1 bg-[#f97316] mx-auto my-16 rounded-full"></div>
 
-  <!-- SERVICIOS / MARCAS -->
+  <!-- SERVICIOS / MARCAS con títulos naranja -->
   <section id="servicios" class="mb-12">
-    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12" style="color: #2e7d32;">🔧 MARCAS QUE MANEJAMOS</h2>
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12" style="color: #f97316;">🔧 MARCAS QUE MANEJAMOS</h2>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-      <div class="bg-white p-6 rounded-2xl shadow border-2 border-[#ffd600] font-bold text-lg">STIHL</div>
-      <div class="bg-white p-6 rounded-2xl shadow border-2 border-[#ffd600] font-bold text-lg">Husqvarna</div>
-      <div class="bg-white p-6 rounded-2xl shadow border-2 border-[#ffd600] font-bold text-lg">ECOHORSE</div>
-      <div class="bg-white p-6 rounded-2xl shadow border-2 border-[#ffd600] font-bold text-lg">OREGON</div>
-      <div class="bg-white p-6 rounded-2xl shadow border-2 border-[#ffd600] font-bold text-lg">MITSUBISHI</div>
-      <div class="bg-white p-6 rounded-2xl shadow border-2 border-[#ffd600] font-bold text-lg">WARRIOR</div>
-      <div class="bg-white p-6 rounded-2xl shadow border-2 border-[#ffd600] font-bold text-lg">Mobil</div>
-      <div class="bg-white p-6 rounded-2xl shadow border-2 border-[#ffd600] font-bold text-lg">MOTUL</div>
+      <div class="bg-white p-6 rounded-2xl shadow border-2 font-bold text-lg" style="border-color: #f97316;">STIHL</div>
+      <div class="bg-white p-6 rounded-2xl shadow border-2 font-bold text-lg" style="border-color: #f97316;">Husqvarna</div>
+      <div class="bg-white p-6 rounded-2xl shadow border-2 font-bold text-lg" style="border-color: #f97316;">ECOHORSE</div>
+      <div class="bg-white p-6 rounded-2xl shadow border-2 font-bold text-lg" style="border-color: #f97316;">OREGON</div>
+      <div class="bg-white p-6 rounded-2xl shadow border-2 font-bold text-lg" style="border-color: #f97316;">MITSUBISHI</div>
+      <div class="bg-white p-6 rounded-2xl shadow border-2 font-bold text-lg" style="border-color: #f97316;">WARRIOR</div>
+      <div class="bg-white p-6 rounded-2xl shadow border-2 font-bold text-lg" style="border-color: #f97316;">Mobil</div>
+      <div class="bg-white p-6 rounded-2xl shadow border-2 font-bold text-lg" style="border-color: #f97316;">MOTUL</div>
     </div>
   </section>
 
-  <!-- SEPARADOR 2 -->
-  <div class="w-24 h-1 bg-[#ffd600] mx-auto my-16 rounded-full"></div>
+  <!-- SEPARADOR -->
+  <div class="w-24 h-1 bg-[#f97316] mx-auto my-16 rounded-full"></div>
 
   <!-- SOBRE NOSOTROS -->
   <section id="nosotros" class="mb-12">
-    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12" style="color: #2e7d32;">🏢 SOBRE NOSOTROS</h2>
-    <div class="bg-white p-8 rounded-3xl shadow-lg border-2 border-[#ffd600]">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12" style="color: #f97316;">🏢 SOBRE NOSOTROS</h2>
+    <div class="bg-white p-8 rounded-3xl shadow-lg border-2" style="border-color: #f97316;">
       <p class="text-lg mb-6">COMERCIALIZADORA E IMPORTADORA EL CAMPO es una empresa dedicada a la venta de repuestos para maquinaria agrícola e industrial en Cúcuta. Con una amplia trayectoria en el sector, nos hemos posicionado como proveedores confiables de las mejores marcas del mercado.</p>
       <p class="text-lg">Nuestro local está ubicado en una zona estratégica de fácil acceso, y contamos con un amplio stock de productos para atender las necesidades del campo y la industria.</p>
     </div>
   </section>
 
-  <!-- SEPARADOR 3 -->
-  <div class="w-24 h-1 bg-[#ffd600] mx-auto my-16 rounded-full"></div>
+  <!-- SEPARADOR -->
+  <div class="w-24 h-1 bg-[#f97316] mx-auto my-16 rounded-full"></div>
 
   <!-- VMV -->
   <section id="vmv" class="mb-12">
-    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12" style="color: #2e7d32;">🎯 VMV</h2>
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12" style="color: #f97316;">🎯 VMV</h2>
     <div class="grid md:grid-cols-3 gap-8">
-      <div class="bg-white p-8 rounded-2xl shadow-lg border-2 border-[#ffd600] text-center">
-        <div class="text-5xl mb-4 text-[#2e7d32]">🎯</div>
-        <h3 class="font-bold text-2xl mb-4" style="color: #2e7d32;">Misión</h3>
+      <div class="bg-white p-8 rounded-2xl shadow-lg border-2 text-center" style="border-color: #f97316;">
+        <div class="text-5xl mb-4" style="color: #f97316;">🎯</div>
+        <h3 class="font-bold text-2xl mb-4" style="color: #f97316;">Misión</h3>
         <p class="text-lg">Proveer repuestos de calidad para maquinaria agrícola e industrial, contribuyendo al desarrollo del campo colombiano.</p>
       </div>
-      <div class="bg-white p-8 rounded-2xl shadow-lg border-2 border-[#ffd600] text-center">
-        <div class="text-5xl mb-4 text-[#2e7d32]">👁️</div>
-        <h3 class="font-bold text-2xl mb-4" style="color: #2e7d32;">Visión</h3>
+      <div class="bg-white p-8 rounded-2xl shadow-lg border-2 text-center" style="border-color: #f97316;">
+        <div class="text-5xl mb-4" style="color: #f97316;">👁️</div>
+        <h3 class="font-bold text-2xl mb-4" style="color: #f97316;">Visión</h3>
         <p class="text-lg">Ser la comercializadora de referencia en Norte de Santander, reconocida por nuestra calidad y servicio.</p>
       </div>
-      <div class="bg-white p-8 rounded-2xl shadow-lg border-2 border-[#ffd600] text-center">
-        <div class="text-5xl mb-4 text-[#2e7d32]">⭐</div>
-        <h3 class="font-bold text-2xl mb-4" style="color: #2e7d32;">Valores</h3>
+      <div class="bg-white p-8 rounded-2xl shadow-lg border-2 text-center" style="border-color: #f97316;">
+        <div class="text-5xl mb-4" style="color: #f97316;">⭐</div>
+        <h3 class="font-bold text-2xl mb-4" style="color: #f97316;">Valores</h3>
         <p class="text-lg">Compromiso, honestidad, calidad, trabajo en equipo y vocación de servicio.</p>
       </div>
     </div>
   </section>
 
-  <!-- SEPARADOR 4 -->
-  <div class="w-24 h-1 bg-[#ffd600] mx-auto my-16 rounded-full"></div>
+  <!-- SEPARADOR -->
+  <div class="w-24 h-1 bg-[#f97316] mx-auto my-16 rounded-full"></div>
 
   <!-- CONTACTO -->
   <section id="contacto" class="mb-12">
-    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12" style="color: #2e7d32;">📍 CONTACTO</h2>
-    <div class="bg-[#2e7d32] text-white p-10 rounded-3xl border-4 border-[#ffd600] text-center">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12" style="color: #f97316;">📍 CONTACTO</h2>
+    <div class="bg-[#f97316] text-white p-10 rounded-3xl border-4 border-[#ffd600] text-center">
       <p class="text-3xl mb-4"><i class="fas fa-phone-alt mr-3"></i> 302 865 6729</p>
       <p class="text-xl mb-4"><i class="fas fa-map-marker-alt mr-3"></i> Av. 6 con Calle 2 Esquina, Barrio Callejón, Cúcuta</p>
       <p class="text-xl mb-6 correo-largo"><i class="fas fa-envelope mr-3"></i> comercializadoraelcampo3@gmail.com</p>
       <div class="flex justify-center gap-6 mt-6">
         <a href="https://wa.me/573028656729" class="bg-green-500 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-green-600">📱 WhatsApp</a>
-        <a href="tel:+573028656729" class="bg-[#ffd600] text-[#2e7d32] px-8 py-4 rounded-full font-bold text-lg hover:bg-white">📞 Llamar</a>
+        <a href="tel:+573028656729" class="bg-[#ffd600] text-[#f97316] px-8 py-4 rounded-full font-bold text-lg hover:bg-white">📞 Llamar</a>
       </div>
     </div>
   </section>
 
-  <!-- SEPARADOR 5 -->
-  <div class="w-24 h-1 bg-[#ffd600] mx-auto my-16 rounded-full"></div>
+  <!-- SEPARADOR -->
+  <div class="w-24 h-1 bg-[#f97316] mx-auto my-16 rounded-full"></div>
 
   <!-- QR -->
-  <div class="max-w-md mx-auto mb-12 p-6 bg-white rounded-2xl shadow-lg border-2 border-[#ffd600] text-center">
-    <h3 class="font-bold text-2xl text-[#2e7d32] mb-4">📲 Escanea y guarda el contacto</h3>
+  <div class="max-w-md mx-auto mb-12 p-6 bg-white rounded-2xl shadow-lg border-2 text-center" style="border-color: #f97316;">
+    <h3 class="font-bold text-2xl mb-4" style="color: #f97316;">📲 Escanea y guarda el contacto</h3>
     <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://elcampo.netlify.app" alt="QR EL CAMPO" class="mx-auto rounded-lg mb-4">
     <p class="text-sm text-gray-600">Escanea con tu celular</p>
   </div>
 
   <!-- SEPARADOR FINAL -->
-  <div class="w-24 h-1 bg-[#ffd600] mx-auto my-12 rounded-full"></div>
+  <div class="w-24 h-1 bg-[#f97316] mx-auto my-12 rounded-full"></div>
 
   <!-- FOOTER -->
-  <footer class="text-center py-6 text-gray-600 border-t-2 border-[#ffd600]">
+  <footer class="text-center py-6 text-gray-600 border-t-2" style="border-color: #f97316;">
     <p>© 2026 COMERCIALIZADORA EL CAMPO · Todos los derechos reservados</p>
-    <p class="mt-2 text-sm">Diseño: <a href="https://wa.me/573244913371" class="text-[#2e7d32] font-semibold">NGE Tarjetas Digitales</a></p>
+    <p class="mt-2 text-sm">Diseño: <a href="https://wa.me/573244913371" class="font-semibold" style="color: #f97316;">NGE Tarjetas Digitales</a></p>
   </footer>
 
 </div>
