@@ -67,77 +67,59 @@
       padding: 1rem;
     }
     
-    /* HERO CON LOGO CENTRADO Y MÁS GRANDE */
-    .hero-con-logo {
+    /* PORTADA LIMPIA - SOLO IMAGEN, SIN TEXTO */
+    .portada-limpia {
       position: relative;
       height: 500px;
       border-radius: 1.5rem;
       overflow: hidden;
       border: 4px solid #ffd600;
       box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
     
-    .hero-con-logo img {
-      position: absolute;
+    .portada-limpia img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: center;
-      z-index: 1;
     }
     
-    /* CAPA OSCURA PARA DESTACAR EL TEXTO */
-    .hero-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 2;
-    }
-    
-    /* CONTENEDOR DEL TEXTO CENTRADO */
-    .hero-texto {
-      position: relative;
-      z-index: 3;
+    /* LOGO GRANDE PARA DESPUÉS DE LA PORTADA */
+    .logo-gigante {
       text-align: center;
-      color: white;
+      margin: 4rem 0 3rem 0;
       padding: 2rem;
-      max-width: 800px;
+      background: linear-gradient(135deg, #2e7d32 0%, #1e4f20 100%);
+      border-radius: 2rem;
+      border: 4px solid #ffd600;
+      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);
     }
     
-    .hero-texto h1 {
-      font-size: 4.5rem;
+    .logo-gigante h1 {
+      font-size: 5rem;
       font-weight: 800;
       color: #ffd600;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-      margin-bottom: 1rem;
+      text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
       line-height: 1.2;
+      margin-bottom: 0.5rem;
     }
     
-    .hero-texto .subtitulo {
-      font-size: 1.8rem;
-      font-weight: 600;
+    .logo-gigante .subtitulo-logo {
+      font-size: 2rem;
       color: white;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-      margin-bottom: 2rem;
+      font-weight: 400;
+      letter-spacing: 2px;
     }
     
-    .hero-texto .nombre-comercial {
-      font-size: 1.5rem;
-      font-weight: 400;
+    .logo-gigante .nombre-completo {
+      font-size: 1.8rem;
       color: #ffd600;
-      background: rgba(46, 125, 50, 0.8);
+      margin-top: 1rem;
+      font-weight: 600;
+      background: rgba(0,0,0,0.2);
       display: inline-block;
       padding: 0.5rem 2rem;
       border-radius: 50px;
-      border: 2px solid #ffd600;
-      backdrop-filter: blur(5px);
-      margin-top: 1rem;
     }
     
     /* Galería vertical */
@@ -166,17 +148,17 @@
     }
     
     @media (max-width: 768px) {
-      .hero-con-logo {
-        height: 400px;
+      .portada-limpia {
+        height: 300px;
       }
-      .hero-texto h1 {
-        font-size: 3rem;
+      .logo-gigante h1 {
+        font-size: 3.5rem;
       }
-      .hero-texto .subtitulo {
+      .logo-gigante .subtitulo-logo {
+        font-size: 1.5rem;
+      }
+      .logo-gigante .nombre-completo {
         font-size: 1.3rem;
-      }
-      .hero-texto .nombre-comercial {
-        font-size: 1.2rem;
       }
     }
   </style>
@@ -192,7 +174,7 @@
 
   <!-- NAVEGACIÓN (escritorio) -->
   <nav class="hidden md:flex justify-between items-center bg-[#2e7d32] text-white px-6 py-3 rounded-full mb-6 border-2 border-[#ffd600] shadow-lg sticky top-4 z-50">
-    <div class="font-['Montserrat'] text-2xl font-bold text-[#ffd600]">🌾 EL CAMPO</div>
+    <div class="font-['Montserrat'] text-2xl font-bold text-[#ffd600]">🌾 COMERCIALIZADORA</div>
     <div class="flex gap-6">
       <a href="#inicio" class="hover:text-[#ffd600]">Inicio</a>
       <a href="#servicios" class="hover:text-[#ffd600]">Servicios</a>
@@ -206,7 +188,7 @@
   <!-- MENÚ HAMBURGUESA (móvil) -->
   <div class="md:hidden sticky top-4 z-50">
     <div class="flex justify-between items-center bg-[#2e7d32] text-white p-4 rounded-2xl mb-4 border-2 border-[#ffd600]">
-      <span class="font-['Montserrat'] text-xl font-bold text-[#ffd600]">🌾 EL CAMPO</span>
+      <span class="font-['Montserrat'] text-xl font-bold text-[#ffd600]">🌾 COMERCIALIZADORA</span>
       <button id="menu-btn" class="menu-hamburguesa text-2xl">
         <i class="fas fa-bars"></i>
       </button>
@@ -221,18 +203,19 @@
     </div>
   </div>
 
-  <!-- HERO CON LOGO GRANDE, CENTRADO Y NOMBRE DE LA EMPRESA -->
+  <!-- PORTADA LIMPIA - SOLO IMAGEN (SIN TEXTO) -->
   <section id="inicio" class="mb-8">
-    <div class="hero-con-logo">
+    <div class="portada-limpia">
       <img src="portada.png" alt="COMERCIALIZADORA EL CAMPO">
-      <div class="hero-overlay"></div>
-      <div class="hero-texto">
-        <h1>🌾 EL CAMPO</h1>
-        <div class="subtitulo">Repuestos para maquinaria agrícola</div>
-        <div class="nombre-comercial">COMERCIALIZADORA E IMPORTADORA</div>
-      </div>
     </div>
   </section>
+
+  <!-- LOGO GIGANTE DESPUÉS DE LA PORTADA -->
+  <div class="logo-gigante">
+    <h1>🌾 EL CAMPO</h1>
+    <div class="subtitulo-logo">Repuestos para maquinaria agrícola</div>
+    <div class="nombre-completo">COMERCIALIZADORA E IMPORTADORA</div>
+  </div>
 
   <!-- GALERÍA DE IMÁGENES -->
   <section class="mb-12">
