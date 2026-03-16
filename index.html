@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>🌾 COMERCIALIZADORA EL CAMPO</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -16,7 +16,12 @@
     }
     h1, h2, h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; }
 
-    /* NAVEGACIÓN */
+    /* MENÚ HAMBURGUESA */
+    #mobile-menu { display: none; }
+    #mobile-menu.mostrar { display: flex; }
+    .menu-btn { cursor: pointer; }
+
+    /* NAVEGACIÓN MEJORADA */
     nav { 
       background: linear-gradient(135deg, #f97316, #ea580c); 
       border: 3px solid #ffd600; 
@@ -27,125 +32,156 @@
       position: sticky;
       top: 1rem;
       z-index: 100;
-      backdrop-filter: blur(10px);
     }
 
-    /* PORTADA CON ESPACIO */
-    #inicio { margin-bottom: 4rem; }
-
-    /* LOGO - PROPORCIONADO */
+    /* LOGO GRANDE - LETRAS BLANCAS */
     .logo-principal {
       margin: 3rem 1rem 2rem 1rem;
-      padding: 2rem;
+      padding: 3rem 2rem;
       background: linear-gradient(135deg, #f97316, #ea580c);
-      border-radius: 25px;
-      border: 4px solid #ffd600;
-      box-shadow: 0 20px 40px rgba(249,115,22,0.3);
+      border-radius: 40px;
+      border: 5px solid #ffd600;
+      box-shadow: 0 25px 50px rgba(249,115,22,0.4);
       text-align: center;
-      max-width: 600px;
+      max-width: 800px;
       margin-left: auto;
       margin-right: auto;
     }
 
     .logo-principal h1 {
-      font-size: 3.5rem;
+      font-size: 5rem;
       color: white !important;
       font-weight: 900;
-      text-shadow: 3px 3px 10px rgba(0,0,0,0.7);
-      margin-bottom: 0.5rem;
+      text-shadow: 4px 4px 12px rgba(0,0,0,0.5);
+      margin-bottom: 1rem;
       letter-spacing: 2px;
+      line-height: 1.2;
     }
 
     .logo-principal .subtitulo-logo {
-      font-size: 1.8rem;
+      font-size: 2.2rem;
       color: white !important;
       font-weight: 700;
-      letter-spacing: 1px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
     }
 
-    /* OCULTAR texto sobrante */
-    .nombre-completo { display: none !important; }
+    /* PORTADA */
+    #inicio img {
+      max-height: 500px;
+      object-fit: cover;
+      border-radius: 30px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
 
     /* GALERÍA */
     .galeria-vertical img {
       width: 100%;
       max-height: 500px;
       object-fit: cover;
-      border-radius: 20px;
-      border: 3px solid #f97316;
-      margin-bottom: 1.5rem;
+      border-radius: 25px;
+      border: 4px solid #f97316;
+      margin-bottom: 2rem;
+      box-shadow: 0 15px 30px rgba(249,115,22,0.2);
     }
 
     /* SECCIONES */
     section { 
       max-width: 1200px; 
-      margin: 0 auto 4rem auto; 
-      padding: 0 1rem;
+      margin: 0 auto 5rem auto; 
+      padding: 0 1.5rem;
     }
 
     h2 { 
       color: #f97316; 
       text-align: center; 
-      font-size: 2.5rem; 
+      font-size: 2.8rem; 
       margin-bottom: 3rem;
+      font-weight: 800;
     }
 
     /* MARCAS */
     .marcas-grid { 
       display: grid; 
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
-      gap: 1.5rem; 
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
+      gap: 2rem; 
     }
     .marca { 
       background: white; 
-      padding: 2rem; 
-      border-radius: 20px; 
+      padding: 2rem 1.5rem; 
+      border-radius: 25px; 
       border: 3px solid #f97316; 
       font-weight: bold; 
-      font-size: 1.3rem; 
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      font-size: 1.5rem; 
+      box-shadow: 0 15px 25px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: all 0.3s;
     }
+    .marca:hover { transform: scale(1.05); }
 
     /* CONTACTO */
     .contacto-box {
       background: linear-gradient(135deg, #f97316, #ea580c);
       color: white;
-      padding: 3rem 2rem;
-      border-radius: 30px;
-      border: 4px solid #ffd600;
+      padding: 3.5rem 2rem;
+      border-radius: 40px;
+      border: 5px solid #ffd600;
       text-align: center;
-      box-shadow: 0 20px 40px rgba(249,115,22,0.3);
+      box-shadow: 0 25px 50px rgba(249,115,22,0.3);
     }
 
     /* MÓVIL */
     @media (max-width: 768px) {
-      .logo-principal h1 { font-size: 2.5rem !important; }
-      .logo-principal .subtitulo-logo { font-size: 1.3rem !important; }
-      nav { margin: 0.5rem; padding: 0.8rem 1rem; }
+      .logo-principal h1 { font-size: 3.5rem !important; }
+      .logo-principal .subtitulo-logo { font-size: 1.8rem !important; }
+      h2 { font-size: 2.2rem; }
+      .marca { font-size: 1.2rem; padding: 1.5rem; }
+      nav { margin: 0.5rem; padding: 0.8rem 1.5rem; }
+      .contacto-box p { font-size: 1.5rem !important; }
+    }
+
+    @media (max-width: 480px) {
+      .logo-principal h1 { font-size: 2.8rem !important; }
+      .logo-principal .subtitulo-logo { font-size: 1.4rem !important; }
+      .logo-principal { padding: 2rem 1rem; }
     }
   </style>
 </head>
 <body>
-  <!-- NAV -->
-  <nav>
-    <div class="flex justify-between items-center flex-wrap gap-4">
-      <div style="font-family: 'Montserrat'; font-size: 1.8rem; color: #ffd600; font-weight: 700;">🌾 EL CAMPO</div>
-      <div class="flex gap-6 text-white font-semibold">
-        <a href="#inicio" class="hover:text-yellow-300">Inicio</a>
-        <a href="#servicios" class="hover:text-yellow-300">Servicios</a>
-        <a href="#nosotros" class="hover:text-yellow-300">Nosotros</a>
-        <a href="#vmv" class="hover:text-yellow-300">VMV</a>
-        <a href="#contacto" class="hover:text-yellow-300">Contacto</a>
-      </div>
+  <!-- NAV ESCRITORIO -->
+  <nav class="hidden md:flex justify-between items-center">
+    <div style="font-family: 'Montserrat'; font-size: 2rem; color: #ffd600; font-weight: 800;">🌾 EL CAMPO</div>
+    <div class="flex gap-8 text-white font-bold text-lg">
+      <a href="#inicio" class="hover:text-[#ffd600]">Inicio</a>
+      <a href="#servicios" class="hover:text-[#ffd600]">Servicios</a>
+      <a href="#nosotros" class="hover:text-[#ffd600]">Nosotros</a>
+      <a href="#vmv" class="hover:text-[#ffd600]">VMV</a>
+      <a href="#contacto" class="hover:text-[#ffd600]">Contacto</a>
     </div>
   </nav>
 
+  <!-- MENÚ HAMBURGUESA MÓVIL -->
+  <div class="md:hidden sticky top-4 z-50 px-4">
+    <div class="bg-gradient-to-r from-[#f97316] to-[#ea580c] p-4 rounded-2xl border-2 border-[#ffd600] flex justify-between items-center">
+      <span class="font-['Montserrat'] text-2xl font-bold text-[#ffd600]">🌾 EL CAMPO</span>
+      <button id="menu-btn" class="menu-btn text-white text-3xl">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="bg-[#f97316] text-white p-5 rounded-2xl flex-col gap-4 border-2 border-[#ffd600] mt-2 text-lg font-bold">
+      <a href="#inicio" class="block py-3 hover:text-[#ffd600]">Inicio</a>
+      <a href="#servicios" class="block py-3 hover:text-[#ffd600]">Servicios</a>
+      <a href="#nosotros" class="block py-3 hover:text-[#ffd600]">Nosotros</a>
+      <a href="#vmv" class="block py-3 hover:text-[#ffd600]">VMV</a>
+      <a href="#contacto" class="block py-3 hover:text-[#ffd600]">Contacto</a>
+    </div>
+  </div>
+
   <!-- PORTADA -->
-  <section id="inicio">
-    <img src="portada.png" alt="EL CAMPO" class="w-full rounded-3xl shadow-2xl" style="max-height: 500px; object-fit: cover;">
+  <section id="inicio" class="px-4">
+    <img src="portada.png" alt="EL CAMPO" class="w-full rounded-3xl shadow-2xl">
   </section>
 
-  <!-- LOGO PRINCIPAL -->
+  <!-- LOGO PRINCIPAL GRANDE - LETRAS BLANCAS -->
   <div class="logo-principal">
     <h1>🌾 EL CAMPO</h1>
     <div class="subtitulo-logo">Repuestos para maquinaria agrícola</div>
@@ -176,26 +212,65 @@
     </div>
   </section>
 
+  <!-- SOBRE NOSOTROS (breve) -->
+  <section id="nosotros">
+    <h2>🏢 SOBRE NOSOTROS</h2>
+    <div class="bg-white p-8 rounded-3xl shadow-xl border-4 border-[#f97316] text-lg leading-relaxed">
+      <p class="mb-4"><strong>COMERCIALIZADORA E IMPORTADORA EL CAMPO</strong> es una empresa dedicada a la venta de repuestos para maquinaria agrícola e industrial en Cúcuta. Con amplia trayectoria, somos proveedores confiables de las mejores marcas.</p>
+      <p>Ubicados en zona estratégica, contamos con amplio stock para el campo y la industria.</p>
+    </div>
+  </section>
+
+  <!-- VMV -->
+  <section id="vmv">
+    <h2>🎯 VMV</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-white p-6 rounded-2xl shadow-xl border-4 border-[#f97316] text-center">
+        <div class="text-5xl mb-3 text-[#f97316]">🎯</div>
+        <h3 class="text-2xl font-bold mb-3 text-[#f97316]">Misión</h3>
+        <p>Proveer repuestos de calidad para maquinaria agrícola e industrial, contribuyendo al desarrollo del campo colombiano.</p>
+      </div>
+      <div class="bg-white p-6 rounded-2xl shadow-xl border-4 border-[#f97316] text-center">
+        <div class="text-5xl mb-3 text-[#f97316]">👁️</div>
+        <h3 class="text-2xl font-bold mb-3 text-[#f97316]">Visión</h3>
+        <p>Ser la comercializadora de referencia en Norte de Santander, reconocida por calidad y servicio.</p>
+      </div>
+      <div class="bg-white p-6 rounded-2xl shadow-xl border-4 border-[#f97316] text-center">
+        <div class="text-5xl mb-3 text-[#f97316]">⭐</div>
+        <h3 class="text-2xl font-bold mb-3 text-[#f97316]">Valores</h3>
+        <p>Compromiso, honestidad, calidad, trabajo en equipo y vocación de servicio.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTACTO -->
-  <section id="contacto" class="text-center">
+  <section id="contacto">
     <h2>📍 CONTACTO</h2>
-    <div class="contacto-box mx-auto max-w-2xl">
-      <p class="text-3xl mb-6"><i class="fas fa-phone-alt mr-3"></i>302 865 6729</p>
-      <p class="text-2xl mb-6"><i class="fas fa-map-marker-alt mr-3"></i>Av. 6 con Calle 2, Cúcuta</p>
-      <p class="text-xl"><i class="fas fa-envelope mr-3"></i>comercializadoraelcampo3@gmail.com</p>
+    <div class="contacto-box max-w-3xl mx-auto">
+      <p class="text-4xl mb-6"><i class="fas fa-phone-alt mr-4"></i>302 865 6729</p>
+      <p class="text-2xl mb-6"><i class="fas fa-map-marker-alt mr-4"></i>Av. 6 con Calle 2, Cúcuta</p>
+      <p class="text-xl"><i class="fas fa-envelope mr-4"></i>comercializadoraelcampo3@gmail.com</p>
     </div>
   </section>
 
   <!-- QR -->
-  <div class="text-center max-w-md mx-auto p-6 bg-white rounded-2xl shadow-xl border-4 border-[#f97316]">
-    <h3 class="text-2xl font-bold mb-4" style="color: #f97316;">📲 Guarda nuestro contacto</h3>
+  <div class="text-center max-w-md mx-auto my-12 p-6 bg-white rounded-3xl shadow-2xl border-4 border-[#f97316]">
+    <h3 class="text-3xl font-bold mb-4" style="color: #f97316;">📲 Guarda nuestro contacto</h3>
     <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://elcampo.netlify.app" alt="QR" class="mx-auto rounded-xl mb-4">
+    <p class="text-gray-600">Escanea con tu celular</p>
   </div>
 
   <!-- FOOTER -->
-  <footer class="text-center py-12 text-gray-600 border-t-4 mt-16" style="border-color: #f97316;">
-    <p class="text-xl font-semibold">© 2026 COMERCIALIZADORA EL CAMPO</p>
-    <p class="mt-2">Diseño: <a href="https://wa.me/573244913371" style="color: #f97316;">NGE Tarjetas Digitales</a></p>
+  <footer class="text-center py-10 text-gray-600 border-t-4 mt-16" style="border-color: #f97316;">
+    <p class="text-xl font-bold">© 2026 COMERCIALIZADORA EL CAMPO</p>
+    <p class="mt-2 text-lg">Diseño: <a href="https://wa.me/573244913371" class="font-bold" style="color: #f97316;">NGE Tarjetas Digitales</a></p>
   </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('mostrar'));
+    document.querySelectorAll('#mobile-menu a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('mostrar')));
+  </script>
 </body>
 </html>
