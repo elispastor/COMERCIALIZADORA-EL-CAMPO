@@ -26,6 +26,7 @@
       flex-direction: column;
       align-items: center;
       width: 100%;
+      overflow-x: hidden;
     }
     h1, h2, h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; }
     .btn-wsp {
@@ -41,7 +42,7 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
     .btn-nge {
-      background: #f97316; /* NARANJA */
+      background: #f97316;
       color: white;
       padding: 12px 24px;
       border-radius: 40px;
@@ -59,7 +60,7 @@
     .menu-hamburguesa { cursor: pointer; }
     section { scroll-margin-top: 80px; }
     
-    /* === CORRECCIONES FINALES === */
+    /* === CONTENEDOR PRINCIPAL === */
     .contenedor-principal {
       width: 100%;
       max-width: 1200px;
@@ -70,10 +71,12 @@
     /* PORTADA LIMPIA */
     .portada-limpia {
       position: relative;
-      height: 500px;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16/9;
       border-radius: 1.5rem;
       overflow: hidden;
-      border: 4px solid #f97316; /* NARANJA */
+      border: 4px solid #f97316;
       box-shadow: 0 20px 25px -5px rgba(249,115,22,0.2);
     }
     
@@ -84,46 +87,53 @@
       object-position: center;
     }
     
-    /* LOGO GIGANTE - OCUPA TODO EL CONTENEDOR */
+    /* LOGO GIGANTE - CORREGIDO (EL TEXTO YA NO SE SALE) */
     .logo-gigante {
       width: 100%;
       text-align: center;
-      margin: 4rem 0 3rem 0;
-      padding: 3rem 2rem;
-      background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); /* NARANJA */
+      margin: 2rem 0 2rem 0;
+      padding: 2rem 1rem;
+      background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
       border-radius: 2rem;
       border: 4px solid #ffd600;
       box-shadow: 0 25px 30px -8px rgba(249,115,22,0.3);
     }
     
     .logo-gigante h1 {
-      font-size: 7rem; /* MÁS GRANDE */
+      font-size: clamp(2.8rem, 12vw, 6rem); /* Reducido ligeramente el máximo */
       font-weight: 900;
       color: #ffd600;
       text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
       line-height: 1.2;
-      margin-bottom: 1rem;
-      letter-spacing: 2px;
+      margin-bottom: 0.5rem;
+      letter-spacing: 1px;
+      word-break: break-word;
+      max-width: 100%;
+      overflow-wrap: break-word;
     }
     
     .logo-gigante .subtitulo-logo {
-      font-size: 2.5rem;
+      font-size: clamp(1.4rem, 4.5vw, 2.2rem);
       color: white;
       font-weight: 500;
-      letter-spacing: 3px;
-      margin-bottom: 1.5rem;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+      word-break: break-word;
+      max-width: 100%;
     }
     
     .logo-gigante .nombre-completo {
-      font-size: 2rem;
+      font-size: clamp(1.1rem, 3.5vw, 1.8rem);
       color: #ffd600;
-      margin-top: 1.5rem;
+      margin-top: 1rem;
       font-weight: 700;
       background: rgba(0,0,0,0.2);
       display: inline-block;
-      padding: 0.8rem 3rem;
+      padding: 0.5rem 2rem;
       border-radius: 60px;
       border: 2px solid #ffd600;
+      max-width: 90%;
+      word-break: break-word;
     }
     
     /* GALERÍA */
@@ -140,43 +150,90 @@
       max-height: 600px;
       object-fit: contain;
       border-radius: 1rem;
-      border: 3px solid #f97316; /* NARANJA */
+      border: 3px solid #f97316;
       background-color: #f0f0f0;
     }
     
-    /* TARJETAS Y BORDES NARANJA */
-    .borde-naranja {
-      border-color: #f97316 !important;
-    }
-    
-    .texto-naranja {
-      color: #f97316 !important;
-    }
-    
-    .bg-naranja {
-      background-color: #f97316 !important;
-    }
-    
-    /* Correo largo */
-    p, .text-lg, .correo-largo {
+    /* Correo largo - EVITA DESBORDAMIENTO */
+    p, .text-lg, .correo-largo, .text-xl, .text-2xl, .text-3xl {
       word-wrap: break-word;
       overflow-wrap: break-word;
       max-width: 100%;
     }
     
+    /* Ajustes específicos para móvil */
     @media (max-width: 768px) {
       .portada-limpia {
-        height: 300px;
+        aspect-ratio: 16/9;
+        height: auto;
+        border-width: 3px;
       }
+      
+      .logo-gigante {
+        margin: 1.5rem 0 1.5rem 0;
+        padding: 1.5rem 0.5rem;
+        border-width: 3px;
+      }
+      
       .logo-gigante h1 {
-        font-size: 4.5rem;
+        font-size: clamp(2.5rem, 10vw, 3.5rem);
       }
+      
+      .contenedor-principal {
+        padding: 0.5rem;
+      }
+      
+      .bg-\[\#f97316\].text-white.p-10 {
+        padding: 1.5rem !important;
+      }
+      
+      .text-3xl {
+        font-size: 1.8rem !important;
+      }
+      
+      .text-xl {
+        font-size: 1.2rem !important;
+      }
+      
+      .px-8.py-4 {
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+        padding-top: 0.8rem !important;
+        padding-bottom: 0.8rem !important;
+        font-size: 1rem !important;
+      }
+      
+      .grid-cols-2 .p-6 {
+        padding: 1rem !important;
+        font-size: 1rem !important;
+      }
+      
+      .gap-8 {
+        gap: 1rem !important;
+      }
+    }
+    
+    /* Ajuste para pantallas muy pequeñas */
+    @media (max-width: 480px) {
+      .logo-gigante h1 {
+        font-size: clamp(2.2rem, 8vw, 2.8rem);
+      }
+      
       .logo-gigante .subtitulo-logo {
-        font-size: 1.8rem;
+        font-size: clamp(1.1rem, 4vw, 1.3rem);
       }
+      
       .logo-gigante .nombre-completo {
-        font-size: 1.5rem;
-        padding: 0.5rem 1.5rem;
+        font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+        padding: 0.4rem 1rem;
+      }
+      
+      .galeria-vertical {
+        gap: 1rem;
+      }
+      
+      .grid-cols-2 {
+        gap: 0.8rem !important;
       }
     }
   </style>
@@ -190,9 +247,9 @@
 
 <div class="contenedor-principal">
 
-  <!-- NAVEGACIÓN (escritorio) con NARANJA -->
-  <nav class="hidden md:flex justify-between items-center bg-[#f97316] text-white px-6 py-3 rounded-full mb-6 border-2 border-[#ffd600] shadow-lg sticky top-4 z-50">
-    <div class="font-['Montserrat'] text-2xl font-bold text-[#ffd600]">🌾 COMERCIALIZADORA</div>
+  <!-- NAVEGACIÓN (escritorio) -->
+  <nav class="hidden md:flex justify-between items-center bg-[#f97316] text-white px-3 py-3 rounded-full mb-6 border-2 border-[#ffd600] shadow-lg sticky top-4 z-50">
+    <div class="font-['Montserrat'] text-2xl font-bold text-[#ffd600]">🌾 COMERCIALIZADORA E IMPORTADORA</div>
     <div class="flex gap-6">
       <a href="#inicio" class="hover:text-[#ffd600]">Inicio</a>
       <a href="#servicios" class="hover:text-[#ffd600]">Servicios</a>
@@ -203,7 +260,7 @@
     </div>
   </nav>
 
-  <!-- MENÚ HAMBURGUESA (móvil) con NARANJA -->
+  <!-- MENÚ HAMBURGUESA (móvil) -->
   <div class="md:hidden sticky top-4 z-50">
     <div class="flex justify-between items-center bg-[#f97316] text-white p-4 rounded-2xl mb-4 border-2 border-[#ffd600]">
       <span class="font-['Montserrat'] text-xl font-bold text-[#ffd600]">🌾 COMERCIALIZADORA</span>
@@ -221,21 +278,21 @@
     </div>
   </div>
 
-  <!-- PORTADA LIMPIA con borde naranja -->
+  <!-- PORTADA LIMPIA -->
   <section id="inicio" class="mb-8">
     <div class="portada-limpia" style="border-color: #f97316;">
       <img src="portada.png" alt="COMERCIALIZADORA EL CAMPO">
     </div>
   </section>
 
-  <!-- LOGO GIGANTE - AHORA NARANJA Y OCUPA TODO -->
+  <!-- LOGO GIGANTE - CORREGIDO -->
   <div class="logo-gigante">
     <h1>🌾 EL CAMPO</h1>
     <div class="subtitulo-logo">Repuestos para maquinaria agrícola</div>
     <div class="nombre-completo">COMERCIALIZADORA E IMPORTADORA</div>
   </div>
 
-  <!-- GALERÍA DE IMÁGENES con bordes naranja -->
+  <!-- GALERÍA DE IMÁGENES -->
   <section class="mb-12">
     <h2 class="text-3xl md:text-4xl font-bold text-center mb-8" style="color: #f97316;">📸 NUESTRAS INSTALACIONES</h2>
     <div class="galeria-vertical">
@@ -246,10 +303,10 @@
     <p class="text-center text-gray-600 mt-6">Visítanos en Av. 6 con Calle 2 Esquina, Barrio Callejón</p>
   </section>
 
-  <!-- SEPARADOR (ahora naranja) -->
+  <!-- SEPARADOR -->
   <div class="w-24 h-1 bg-[#f97316] mx-auto my-16 rounded-full"></div>
 
-  <!-- SERVICIOS / MARCAS con títulos naranja -->
+  <!-- SERVICIOS / MARCAS -->
   <section id="servicios" class="mb-12">
     <h2 class="text-3xl md:text-4xl font-bold text-center mb-12" style="color: #f97316;">🔧 MARCAS QUE MANEJAMOS</h2>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
