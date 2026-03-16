@@ -2,233 +2,200 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>🌾 COMERCIALIZADORA EL CAMPO · Repuestos Agrícolas</title>
-  
-  <!-- ANTI-CACHÉ -->
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
-  
-  <!-- Tailwind CSS -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌾 COMERCIALIZADORA EL CAMPO</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { 
       font-family: 'Open Sans', sans-serif; 
       background: #f4f4f4; 
-      color: #1e1e1e;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-      overflow-x: hidden;
+      color: #333;
     }
     h1, h2, h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; }
-    
-    /* PORTADA CON MÁS ESPACIO */
-    #inicio {
-      margin-bottom: 8rem !important;
-    }
-    
-    .portada-limpia {
-      width: 100%;
-      height: auto;
-      aspect-ratio: 16/9;
-      border-radius: 1.5rem;
-      overflow: hidden;
-      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);
-      margin-top: 1rem;
-    }
-    
-    .portada-limpia img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    
-    /* LOGO CORREGIDO - BLANCO + ABAJO + SIN TEXTO */
-    .logo-principal {
-      width: 100%;
-      text-align: center;
-      margin: 4rem auto 2rem auto !important;
-      padding: 3rem 2rem !important;
-      background: linear-gradient(135deg, #f97316 0%, #ea580c 100%) !important;
-      border-radius: 2.5rem !important;
-      border: 5px solid #ffd600 !important;
-      box-shadow: 0 30px 40px -10px rgba(249,115,22,0.4) !important;
-    }
-    
-    .logo-principal h1 {
-      font-size: clamp(3.5rem, 12vw, 6rem) !important;
-      font-weight: 900 !important;
-      color: #ffffff !important;
-      text-shadow: 4px 4px 10px rgba(0,0,0,0.7) !important;
-      line-height: 1.1 !important;
-      margin-bottom: 1rem !important;
-      letter-spacing: 2px !important;
-    }
-    
-    .logo-principal .subtitulo-logo {
-      font-size: clamp(1.8rem, 6vw, 3rem) !important;
-      color: #ffffff !important;
-      font-weight: 700 !important;
-      letter-spacing: 1.5px !important;
-      margin: 0 !important;
-    }
-    
-    /* OCULTAR nombre-completo */
-    .logo-principal .nombre-completo {
-      display: none !important;
-    }
-    
-    /* BOTONES Y MENÚS */
-    .btn-wsp {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #25d366;
-      color: white;
+
+    /* NAVEGACIÓN */
+    nav { 
+      background: linear-gradient(135deg, #f97316, #ea580c); 
+      border: 3px solid #ffd600; 
       border-radius: 50px;
-      padding: 12px 20px;
-      font-weight: 600;
-      z-index: 1000;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      margin: 1rem;
+      padding: 1rem 2rem;
+      box-shadow: 0 10px 30px rgba(249,115,22,0.4);
+      position: sticky;
+      top: 1rem;
+      z-index: 100;
+      backdrop-filter: blur(10px);
     }
-    
-    #mobile-menu { display: none; }
-    #mobile-menu.mostrar { display: flex; }
-    .menu-hamburguesa { cursor: pointer; }
-    
-    .galeria-vertical {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      width: 100%;
+
+    /* PORTADA CON ESPACIO */
+    #inicio { margin-bottom: 4rem; }
+
+    /* LOGO - PROPORCIONADO */
+    .logo-principal {
+      margin: 3rem 1rem 2rem 1rem;
+      padding: 2rem;
+      background: linear-gradient(135deg, #f97316, #ea580c);
+      border-radius: 25px;
+      border: 4px solid #ffd600;
+      box-shadow: 0 20px 40px rgba(249,115,22,0.3);
+      text-align: center;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
-    
+
+    .logo-principal h1 {
+      font-size: 3.5rem;
+      color: white !important;
+      font-weight: 900;
+      text-shadow: 3px 3px 10px rgba(0,0,0,0.7);
+      margin-bottom: 0.5rem;
+      letter-spacing: 2px;
+    }
+
+    .logo-principal .subtitulo-logo {
+      font-size: 1.8rem;
+      color: white !important;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    /* OCULTAR texto sobrante */
+    .nombre-completo { display: none !important; }
+
+    /* GALERÍA */
     .galeria-vertical img {
       width: 100%;
-      height: auto;
-      max-height: 600px;
-      object-fit: contain;
-      border-radius: 1rem;
+      max-height: 500px;
+      object-fit: cover;
+      border-radius: 20px;
       border: 3px solid #f97316;
-      background-color: #f0f0f0;
+      margin-bottom: 1.5rem;
     }
-    
+
+    /* SECCIONES */
+    section { 
+      max-width: 1200px; 
+      margin: 0 auto 4rem auto; 
+      padding: 0 1rem;
+    }
+
+    h2 { 
+      color: #f97316; 
+      text-align: center; 
+      font-size: 2.5rem; 
+      margin-bottom: 3rem;
+    }
+
+    /* MARCAS */
+    .marcas-grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+      gap: 1.5rem; 
+    }
+    .marca { 
+      background: white; 
+      padding: 2rem; 
+      border-radius: 20px; 
+      border: 3px solid #f97316; 
+      font-weight: bold; 
+      font-size: 1.3rem; 
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    /* CONTACTO */
+    .contacto-box {
+      background: linear-gradient(135deg, #f97316, #ea580c);
+      color: white;
+      padding: 3rem 2rem;
+      border-radius: 30px;
+      border: 4px solid #ffd600;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(249,115,22,0.3);
+    }
+
+    /* MÓVIL */
     @media (max-width: 768px) {
-      .logo-principal {
-        margin: 2rem auto 1.5rem auto !important;
-        padding: 2rem 1rem !important;
-      }
+      .logo-principal h1 { font-size: 2.5rem !important; }
+      .logo-principal .subtitulo-logo { font-size: 1.3rem !important; }
+      nav { margin: 0.5rem; padding: 0.8rem 1rem; }
     }
   </style>
 </head>
 <body>
-<div class="contenedor-principal">
-  <!-- NAVEGACIÓN -->
-  <nav class="hidden md:flex justify-between items-center bg-[#f97316] text-white px-6 py-3 rounded-full mb-6 border-2 border-[#ffd600] shadow-lg sticky top-4 z-50 max-w-6xl mx-auto">
-    <div class="font-['Montserrat'] text-2xl font-bold text-[#ffd600]">🌾 EL CAMPO</div>
-    <div class="flex gap-6">
-      <a href="#inicio" class="hover:text-[#ffd600]">Inicio</a>
-      <a href="#servicios" class="hover:text-[#ffd600]">Servicios</a>
-      <a href="#nosotros" class="hover:text-[#ffd600]">Nosotros</a>
-      <a href="#vmv" class="hover:text-[#ffd600]">VMV</a>
-      <a href="#contacto" class="hover:text-[#ffd600]">Contacto</a>
+  <!-- NAV -->
+  <nav>
+    <div class="flex justify-between items-center flex-wrap gap-4">
+      <div style="font-family: 'Montserrat'; font-size: 1.8rem; color: #ffd600; font-weight: 700;">🌾 EL CAMPO</div>
+      <div class="flex gap-6 text-white font-semibold">
+        <a href="#inicio" class="hover:text-yellow-300">Inicio</a>
+        <a href="#servicios" class="hover:text-yellow-300">Servicios</a>
+        <a href="#nosotros" class="hover:text-yellow-300">Nosotros</a>
+        <a href="#vmv" class="hover:text-yellow-300">VMV</a>
+        <a href="#contacto" class="hover:text-yellow-300">Contacto</a>
+      </div>
     </div>
   </nav>
 
-  <!-- MENÚ MÓVIL -->
-  <div class="md:hidden sticky top-4 z-50 max-w-6xl mx-auto">
-    <div class="flex justify-between items-center bg-[#f97316] text-white p-3 rounded-2xl mb-4 border-2 border-[#ffd600]">
-      <span class="font-['Montserrat'] text-xl font-bold text-[#ffd600]">🌾 EL CAMPO</span>
-      <button id="menu-btn" class="menu-hamburguesa text-2xl">
-        <i class="fas fa-bars"></i>
-      </button>
-    </div>
-    <div id="mobile-menu" class="bg-[#f97316] text-white p-4 rounded-2xl flex flex-col gap-3 border-2 border-[#ffd600] mb-4">
-      <a href="#inicio" class="py-2 hover:text-[#ffd600]">Inicio</a>
-      <a href="#servicios" class="py-2 hover:text-[#ffd600]">Servicios</a>
-      <a href="#nosotros" class="py-2 hover:text-[#ffd600]">Nosotros</a>
-      <a href="#vmv" class="py-2 hover:text-[#ffd600]">VMV</a>
-      <a href="#contacto" class="py-2 hover:text-[#ffd600]">Contacto</a>
-    </div>
-  </div>
-
   <!-- PORTADA -->
-  <section id="inicio" class="mb-8 max-w-6xl mx-auto">
-    <div class="portada-limpia">
-      <img src="portada.png" alt="COMERCIALIZADORA EL CAMPO">
-    </div>
+  <section id="inicio">
+    <img src="portada.png" alt="EL CAMPO" class="w-full rounded-3xl shadow-2xl" style="max-height: 500px; object-fit: cover;">
   </section>
 
   <!-- LOGO PRINCIPAL -->
-  <div class="logo-principal max-w-4xl mx-auto">
+  <div class="logo-principal">
     <h1>🌾 EL CAMPO</h1>
     <div class="subtitulo-logo">Repuestos para maquinaria agrícola</div>
   </div>
 
   <!-- GALERÍA -->
-  <section class="mb-12 max-w-6xl mx-auto">
-    <h2 class="text-3xl md:text-4xl font-bold text-center mb-8" style="color: #f97316;">📸 NUESTRAS INSTALACIONES</h2>
+  <section>
+    <h2>📸 NUESTRAS INSTALACIONES</h2>
     <div class="galeria-vertical">
-      <img src="portada2.jpg" alt="Interior del local">
-      <img src="portada3.jpg" alt="Productos en exhibición">
+      <img src="portada2.jpg" alt="Interior">
+      <img src="portada3.jpg" alt="Productos">
     </div>
-    <p class="text-center text-gray-600 mt-6 text-xl">Av. 6 con Calle 2 Esquina, Barrio Callejón, Cúcuta</p>
+    <p class="text-center text-xl mt-8 text-gray-700 font-semibold">Av. 6 con Calle 2 Esquina, Barrio Callejón, Cúcuta</p>
   </section>
 
   <!-- MARCAS -->
-  <section id="servicios" class="mb-12 max-w-6xl mx-auto">
-    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12" style="color: #f97316;">🔧 MARCAS QUE MANEJAMOS</h2>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-      <div class="bg-white p-6 rounded-2xl shadow border-2 font-bold text-lg" style="border-color: #f97316;">STIHL</div>
-      <div class="bg-white p-6 rounded-2xl shadow border-2 font-bold text-lg" style="border-color: #f97316;">Husqvarna</div>
-      <div class="bg-white p-6 rounded-2xl shadow border-2 font-bold text-lg" style="border-color: #f97316;">ECOHORSE</div>
-      <div class="bg-white p-6 rounded-2xl shadow border-2 font-bold text-lg" style="border-color: #f97316;">OREGON</div>
-      <div class="bg-white p-6 rounded-2xl shadow border-2 font-bold text-lg" style="border-color: #f97316;">MITSUBISHI</div>
-      <div class="bg-white p-6 rounded-2xl shadow border-2 font-bold text-lg" style="border-color: #f97316;">WARRIOR</div>
-      <div class="bg-white p-6 rounded-2xl shadow border-2 font-bold text-lg" style="border-color: #f97316;">Mobil</div>
-      <div class="bg-white p-6 rounded-2xl shadow border-2 font-bold text-lg" style="border-color: #f97316;">MOTUL</div>
+  <section id="servicios">
+    <h2>🔧 MARCAS QUE MANEJAMOS</h2>
+    <div class="marcas-grid">
+      <div class="marca">STIHL</div>
+      <div class="marca">Husqvarna</div>
+      <div class="marca">ECOHORSE</div>
+      <div class="marca">OREGON</div>
+      <div class="marca">MITSUBISHI</div>
+      <div class="marca">WARRIOR</div>
+      <div class="marca">Mobil</div>
+      <div class="marca">MOTUL</div>
     </div>
   </section>
 
   <!-- CONTACTO -->
-  <section id="contacto" class="mb-12 max-w-4xl mx-auto">
-    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12" style="color: #f97316;">📍 CONTACTO</h2>
-    <div class="bg-[#f97316] text-white p-10 rounded-3xl border-4 border-[#ffd600] text-center">
-      <p class="text-3xl mb-4"><i class="fas fa-phone-alt mr-3"></i> 302 865 6729</p>
-      <p class="text-xl mb-4"><i class="fas fa-map-marker-alt mr-3"></i> Av. 6 con Calle 2 Esquina, Barrio Callejón, Cúcuta</p>
-      <p class="text-xl mb-6"><i class="fas fa-envelope mr-3"></i> comercializadoraelcampo3@gmail.com</p>
+  <section id="contacto" class="text-center">
+    <h2>📍 CONTACTO</h2>
+    <div class="contacto-box mx-auto max-w-2xl">
+      <p class="text-3xl mb-6"><i class="fas fa-phone-alt mr-3"></i>302 865 6729</p>
+      <p class="text-2xl mb-6"><i class="fas fa-map-marker-alt mr-3"></i>Av. 6 con Calle 2, Cúcuta</p>
+      <p class="text-xl"><i class="fas fa-envelope mr-3"></i>comercializadoraelcampo3@gmail.com</p>
     </div>
   </section>
 
   <!-- QR -->
-  <div class="max-w-md mx-auto mb-12 p-6 bg-white rounded-2xl shadow-lg border-2 text-center" style="border-color: #f97316;">
-    <h3 class="font-bold text-2xl mb-4" style="color: #f97316;">📲 Escanea y guarda el contacto</h3>
-    <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://elcampo.netlify.app" alt="QR EL CAMPO" class="mx-auto rounded-lg mb-4">
-    <p class="text-sm text-gray-600">Escanea con tu celular</p>
+  <div class="text-center max-w-md mx-auto p-6 bg-white rounded-2xl shadow-xl border-4 border-[#f97316]">
+    <h3 class="text-2xl font-bold mb-4" style="color: #f97316;">📲 Guarda nuestro contacto</h3>
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://elcampo.netlify.app" alt="QR" class="mx-auto rounded-xl mb-4">
   </div>
 
   <!-- FOOTER -->
-  <footer class="text-center py-6 text-gray-600 border-t-2 max-w-6xl mx-auto" style="border-color: #f97316;">
-    <p>© 2026 COMERCIALIZADORA EL CAMPO · Todos los derechos reservados</p>
-    <p class="mt-2 text-sm">Diseño: <a href="https://wa.me/573244913371" class="font-semibold" style="color: #f97316;">NGE Tarjetas Digitales</a></p>
+  <footer class="text-center py-12 text-gray-600 border-t-4 mt-16" style="border-color: #f97316;">
+    <p class="text-xl font-semibold">© 2026 COMERCIALIZADORA EL CAMPO</p>
+    <p class="mt-2">Diseño: <a href="https://wa.me/573244913371" style="color: #f97316;">NGE Tarjetas Digitales</a></p>
   </footer>
-</div>
-
-<script>
-  const menuBtn = document.getElementById('menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  if (menuBtn) {
-    menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('mostrar'));
-    document.querySelectorAll('#mobile-menu a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('mostrar')));
-  }
-</script>
 </body>
 </html>
